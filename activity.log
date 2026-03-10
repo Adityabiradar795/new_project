@@ -1,0 +1,20 @@
+2026-03-10 02:23:53,973-INFO-user login success for aditya
+2026-03-10 02:24:14,890-WARNING-Failed Login Attempt for adity
+2026-03-10 02:24:26,496-INFO-user login success for aditya
+2026-03-10 02:27:02,201-WARNING-user already exists for name <models.User object at 0x0000016680456E40>
+2026-03-10 02:27:53,464-WARNING-user already exists for name <models.User object at 0x000002289B5E6E40>
+2026-03-10 02:28:24,536-WARNING-user already exists for name <models.User object at 0x0000019625666E40>
+2026-03-10 02:29:54,138-INFO-signin success for user adi with role admin
+2026-03-10 02:32:59,858-INFO-user login success for aditya
+2026-03-10 02:33:06,530-INFO-delete of user adi successfull
+2026-03-10 02:34:54,011-WARNING-someone tried to delete non existing user
+2026-03-10 22:58:59,633-INFO-user login success for aditya
+2026-03-10 22:59:17,263-INFO-user login success for aditya
+2026-03-10 23:00:00,588-INFO-signin success for user adi with role admin
+2026-03-10 23:00:19,947-INFO-delete of user adi successfull by <models.User object at 0x000001DCD3A87490>
+2026-03-10 23:01:23,073-INFO-user login success for aditya
+2026-03-10 23:01:32,670-INFO-signin success for user adi with role admin
+2026-03-10 23:01:41,030-INFO-delete of user adi successfull by aditya
+2026-03-10 23:02:15,757-INFO-user login success for aditi
+2026-03-10 23:02:22,514-INFO-signin success for user adi with role admin
+2026-03-10 23:02:26,627-WARNING-user trying to delete with out access of admin
