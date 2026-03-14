@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+<<<<<<< HEAD
 from backend.dependencies import get_db
 from models.user import user
 from routes.auth import get_current_user
@@ -14,6 +15,22 @@ def get_users(current_user:user=Depends(get_current_user),db:Session=Depends(get
 
 @router.delete("/{username}")
 def delete_user(username:str,current_user:user=Depends(get_current_user),db:Session=Depends(get_db)):
+=======
+from dependencies import get_db
+from models import User
+from routes.auth import get_current_user
+from logger import logger
+router = APIRouter()
+@router.get("/")
+def get_users(current_user:User=Depends(get_current_user),db:Session=Depends(get_db)):
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    users = db.query(User).all()
+    return users
+
+@router.delete("/{username}")
+def delete_user(username:str,current_user:User=Depends(get_current_user),db:Session=Depends(get_db)):
+>>>>>>> 86d3da5d9e1e4ea42f67bb7c99582b5d0b6695b0
     if not current_user:
         logger.warning(f"unauthorized user trying to delete user {username}")
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -24,17 +41,30 @@ def delete_user(username:str,current_user:user=Depends(get_current_user),db:Sess
         logger.warning(f"user/admin {username} trying to delete himself")
         raise HTTPException(status_code=400, detail="Admin cannot delete themselves")
 
+<<<<<<< HEAD
     User=db.query(user).filter(user.username == username).first()
     if not User:
         logger.warning(f"someone tried to delete non existing user")
         raise HTTPException(status_code=404, detail="User not found")
     logger.info(f"delete of user {username} successfull by {current_user.username}")
     db.delete(User)
+=======
+    user=db.query(User).filter(User.username == username).first()
+    if not user:
+        logger.warning(f"someone tried to delete non existing user")
+        raise HTTPException(status_code=404, detail="User not found")
+    logger.info(f"delete of user {username} successfull by {current_user.username}")
+    db.delete(user)
+>>>>>>> 86d3da5d9e1e4ea42f67bb7c99582b5d0b6695b0
     db.commit()
     return {"message": f"User {username} deleted successfully"}
 
 @router.get("/profile")
+<<<<<<< HEAD
 def get_profile(current_user:user=Depends(get_current_user),db:Session=Depends(get_db)):
+=======
+def get_profile(current_user:User=Depends(get_current_user),db:Session=Depends(get_db)):
+>>>>>>> 86d3da5d9e1e4ea42f67bb7c99582b5d0b6695b0
     if not current_user:
         raise HTTPException(status_code=401, detail="Unauthorized")
     return {"message" : "protected route access","user": current_user}
